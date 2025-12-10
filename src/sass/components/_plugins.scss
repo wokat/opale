@@ -15,7 +15,7 @@
 
 #sidebar .dashboards .dashboard-system-default {
   position: absolute;
-  transform: translateY(-175%);
+  transform: translateY(-200%);
   @if variables.$sidebar-position == "right" {
     right: 15px;
   }
@@ -143,6 +143,17 @@
 
   #admin-menu a.additional-tags::before {
     font-size: 1em;
+  }
+}
+
+#context-menu {
+
+  .icon-tags {
+
+    .icon-svg {
+      position: absolute;
+      left: 0.6em;
+    }
   }
 }
 

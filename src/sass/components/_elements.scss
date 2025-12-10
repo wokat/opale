@@ -274,6 +274,10 @@ p.subtitle {
 
     background: variables.$body-bg;
   }
+
+  &:empty {
+    display: none;
+  }
 }
 
 .handle {
