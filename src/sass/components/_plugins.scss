@@ -9,6 +9,10 @@
 // Additionals
 // https://www.redmine.org/plugins/additionals
 
+.select2-container--default .select2-results__option {
+  padding: 3px 8px;
+}
+
 #sidebar .dashboards .dashboard-system-default {
   position: absolute;
   transform: translateY(-175%);
@@ -98,10 +102,43 @@
   }
 }
 
-#main {
+#wrapper {
+
   .additional-tag-label-color {
     font-weight: 600;
     text-transform: uppercase;
+    border-radius: 2px !important;
+    margin-right: 3px;
+    vertical-align: middle;
+    overflow: hidden;
+
+    .tag-count {
+      border-radius: 0;
+    }
+  }
+
+  #edit-tags-link {
+    display: inline-block;
+    position: relative;
+    top: -2px;
+    margin-left: 5px;
+
+    &::after {
+      @extend .ti;
+
+      position: absolute;
+      left: 100%;
+      font-size: 1.2em;
+      content: tabler-icons.$ti-icon-pencil;
+      top: 50%;
+      margin-top: -0.6em;
+      margin-left: 5px;
+      text-decoration: none;
+    }
+  }
+
+  .wiki-attributes .tags.attribute .contextual {
+    vertical-align: top;
   }
 
   #admin-menu a.additional-tags::before {
@@ -115,19 +152,40 @@
     margin-bottom: 5px;
 
     &.select2-container--default .select2-selection--multiple .select2-selection__rendered {
-      margin: 0;
       padding: 3px;
     }
   }
 }
 
-body .flyout-menu div.sidebar-tags ul.tags-cloud li a {
-  height: auto;
-  padding: 0;
-  border-top: none;
-  font-weight: bold;
-  line-height: 1.5em;
-  text-transform: uppercase;
+#issue_tags {
+  .select2-container {
+
+    &.select2-container--default .select2-selection--multiple .select2-selection__rendered {
+      padding: 3px;
+    }
+  }
+}
+
+body .flyout-menu div.sidebar-tags {
+
+  h3 {
+    margin-left: 0;
+  }
+
+  div.tags-cloud,
+  ul.tags-cloud {
+
+    margin-left: 10px;
+
+    li a {
+      height: auto;
+      padding: 0;
+      border-top: none;
+      font-weight: bold;
+      line-height: 1.5em;
+      text-transform: uppercase;
+    }
+  }
 }
 
 
@@ -336,6 +394,15 @@ body .flyout-menu div.sidebar-tags ul.tags-cloud li a {
   @include variants.ti-icon-style;
 
   background-image: none;
+  position: relative;
+
+  #sidebar & {
+    padding-left: 40px;
+  }
+
+  #admin-index & {
+    padding-left: 22px;
+  }
 
   &::before {
     @include variants.ti-icon-variant(tabler-icons.$ti-icon-message-circle-exclamation);
@@ -343,6 +410,22 @@ body .flyout-menu div.sidebar-tags ul.tags-cloud li a {
     margin-right: 4px;
     color: variables.$gray-900;
     font-size: 1.25em;
+    position: absolute;
+    left: 20px;
+
+    #admin-index & {
+      left: 0;
+    }
+  }
+}
+
+#top-menu a.redmine-banner {
+  @include variants.ti-icon-style;
+
+  &::before {
+    @include variants.ti-icon-variant(tabler-icons.$ti-icon-message-circle);
+
+    margin-right: 4px;
   }
 }
 
@@ -665,8 +748,11 @@ body div.banner_area {
   @include variants.ti-icon-style;
   @include variants.icon-variant("default", false);
 
-  padding: (variables.$btn-padding-vertical + 1px) variables.$btn-padding-horizontal-small;
-  line-height: 2em;
+  padding: variables.$btn-padding-vertical variables.$btn-padding-horizontal-small;
+
+  .icon-svg {
+    display: none;
+  }
 
   &::before {
     @include variants.ti-icon-variant(tabler-icons.$ti-icon-spy);
@@ -805,6 +891,51 @@ body div.banner_area {
 
     table.progress {
       width: 88%;
+    }
+  }
+}
+
+
+// Redmine Issue Dynamic Edit
+// https://www.redmine.org/plugins/redmine_issue_dynamic_edit
+
+#content {
+
+  div.issue.details .iconEdit {
+    opacity: 1;
+    visibility: hidden;
+
+    svg {
+      display: none;
+    }
+
+    &::after {
+      @extend .ti;
+
+      font-size: 1.2em;
+      color: variables.$blue;
+      content: tabler-icons.$ti-icon-pencil;
+      font-weight: 400;
+    }
+  }
+
+  .dynamicEditField button.action {
+    line-height: unset;
+
+    svg {
+      position: relative;
+      top: 2px;
+    }
+  }
+
+  div.issue.details.showPencil .iconEdit,
+  div.issue.details .attribute:hover .iconEdit,
+  div.issue.details .description:hover .iconEdit,
+  div.issue.details div.subject:hover .iconEdit,
+  div.issue.details.showPencils:hover .iconEdit {
+
+    &::after {
+      visibility: visible;
     }
   }
 }

@@ -390,3 +390,23 @@ span.tag-label-color {
     padding: 2px 0 2px 24px;
   }
 }
+
+
+// Redmine Kanban
+// https://www.redmine-kanban.com/
+
+#admin-menu {
+
+  a.icon.redmine-kanban {
+    background-repeat: no-repeat;
+
+    div #sidebar & {
+      background-position: 18px center;
+      padding-left: 40px;
+    }
+
+    #admin-index & {
+      padding-left: 23px;
+    }
+  }
+}

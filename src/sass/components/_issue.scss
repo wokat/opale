@@ -3,6 +3,7 @@
 @use "../variables";
 @use "../mixins/issues";
 @use "../vendor/bootstrap/mixins/clearfix";
+@use "../vendor/tabler-icons";
 
 // Issue page
 
@@ -517,6 +518,17 @@ div.thumbnails {
       display: block;
     }
   }
+
+  #tab-changesets {
+
+    &::before {
+      @extend .ti;
+
+      content: tabler-icons.$ti-icon-git-fork;
+      color: inherit;
+      font-size: 1.2em;
+    }
+  }
 }
 
 .journal {
@@ -672,6 +684,10 @@ div.thumbnails {
       .journal-info {
         margin-left: -(variables.$bubble-padding-horizontal + 14px);
 
+        > .gravatar {
+          margin-bottom: -3px;
+        }
+
         > .gravatar,
         > span[role="img"].avatar {
           transform: translate3d(-(variables.$bubble-gravatar-size), -5px, 0);
@@ -692,6 +708,7 @@ div.thumbnails {
   form,
   .wiki,
   .details,
+  .journal-details,
   .details + p {
     border-top: 1px solid variables.$bubble-border;
   }
@@ -723,6 +740,17 @@ div.thumbnails {
     img {
       vertical-align: middle;
     }
+  }
+
+  .journal-details {
+    margin: 0;
+    padding: variables.$bubble-padding-vertical 0;
+    padding-left: variables.$bubble-padding-horizontal + 20px;
+  }
+
+  .journal-note {
+    padding: variables.$issue-padding;
+    padding-top: 0;
   }
 
   .wiki {

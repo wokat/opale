@@ -105,6 +105,8 @@ p.buttons,
   > span:not(.drdn) {
     margin-right: 1px;
     margin-left: 1px;
+    // margin-bottom in case of multiple lines: adds gap between button lines, and gap between buttons and headline
+    margin-bottom: 5px;
     padding: variables.$btn-padding-vertical variables.$btn-padding-horizontal-small;
     transition:
       border-color variables.$transition-time ease-in-out,

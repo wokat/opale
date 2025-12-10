@@ -45,6 +45,16 @@
       text-decoration: none;
     }
 
+    &.administration {
+      @include variants.ti-icon-style;
+
+      &::before {
+        @include variants.ti-icon-variant(tabler-icons.$ti-icon-settings);
+
+        margin-right: 4px;
+      }
+    }
+
     &.login {
       @include variants.ti-icon-style;
 
