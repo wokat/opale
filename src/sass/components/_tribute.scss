@@ -1,0 +1,27 @@
+@use "../variables" as variables;
+
+.tribute-container {
+  color: variables.$text-color;
+  line-height: variables.$line-height-base;
+  font-size: variables.$font-size-base;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    background: variables.$body-bg;
+    border-color: variables.$input-border;
+    border-radius: variables.$border-radius-base;
+    overflow: hidden;
+  }
+
+  li {
+    padding-top: variables.$input-padding-vertical;
+    padding-right: variables.$input-padding-horizontal;
+    padding-bottom: variables.$input-padding-vertical;
+    padding-left: variables.$input-padding-horizontal;
+
+    &.highlight {
+        background-color: variables.$pagination-hover-bg;
+    }
+  }
+}

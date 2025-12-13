@@ -832,6 +832,10 @@ body div.banner_area {
   }
 }
 
+p.plugin_redmine_silencer {
+  margin-bottom: 0;
+}
+
 @media screen and (max-width: variables.$redmine-responsive-max) {
   body {
     .js-profile-menu a {
@@ -904,6 +908,14 @@ body div.banner_area {
       width: 88%;
     }
   }
+}
+
+
+// Redmine Mentions
+// https://github.com/tainewoo/redmine_mentions
+
+.redmine-mentions-hint {
+  margin-bottom: 0;
 }
 
 
