@@ -1,17 +1,21 @@
 @use "../variables" as variables;
+@use "../mixins/shadows" as shadows;
 
 .tribute-container {
-  color: variables.$text-color;
+  @include shadows.nice-shadow(2);
+
+  color: variables.$component-color;
   line-height: variables.$line-height-base;
   font-size: variables.$font-size-base;
+  background: variables.$body-bg;
+  border-color: variables.$input-border;
+  border-radius: variables.$border-radius-base;
+  padding: 2px;
 
   ul {
     margin: 0;
     padding: 0;
-    background: variables.$body-bg;
-    border-color: variables.$input-border;
-    border-radius: variables.$border-radius-base;
-    overflow: hidden;
+    background: transparent;
   }
 
   li {
@@ -21,7 +25,9 @@
     padding-left: variables.$input-padding-horizontal;
 
     &.highlight {
-        background-color: variables.$pagination-hover-bg;
+      background: variables.$component-active-bg;
+      color: variables.$component-active-color;
+      font-weight: variables.$font-weight-normal;
     }
   }
 }
