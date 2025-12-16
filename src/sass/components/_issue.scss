@@ -682,7 +682,6 @@ div.thumbnails {
       }
 
       .journal-info {
-        margin-left: -(variables.$bubble-padding-horizontal + 14px);
 
         > .gravatar {
           margin-bottom: -3px;
@@ -690,7 +689,8 @@ div.thumbnails {
 
         > .gravatar,
         > span[role="img"].avatar {
-          transform: translate3d(-(variables.$bubble-gravatar-size), -5px, 0);
+          margin-right: -(variables.$bubble-padding-horizontal + 14px);
+          transform: translate3d(-(variables.$bubble-gravatar-size + variables.$bubble-padding-horizontal + 14px), -5px, 0);
         }
       }
     }
@@ -748,12 +748,17 @@ div.thumbnails {
     padding-left: variables.$bubble-padding-horizontal + 20px;
   }
 
-  .journal-note {
-    padding: variables.$issue-padding;
-    padding-top: 0;
+  // Utterly anonymous revision notes
+  .journal-content > p:first-child:not([class]) {
+    margin: 0;
+    border-top: 1px solid variables.$bubble-border;
+    padding: variables.$bubble-padding-vertical 0;
+    padding-left: variables.$bubble-padding-horizontal;
   }
 
-  .wiki {
+  .wiki,
+  .journal-note {
+    border-top: 1px solid variables.$bubble-border;
     padding: variables.$issue-padding;
   }
 
